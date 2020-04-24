@@ -27,9 +27,13 @@ function add_todo(name)
   total += 1;
   unchecked += 1;
 
+  let todo = document.createElement("li")
+  let node = document.createTextNode(name)
   let input =  document.createElement("input");
+
   input.setAttribute("type","checkbox");
-  input.classList.add("todo-checkbox")
+  input.classList.add("todo-checkbox");
+
   input.addEventListener("click",function(event) {
     if(event.target.checked){
       unchecked -= 1;
@@ -42,6 +46,7 @@ function add_todo(name)
 
   let remove = document.createElement("button");
   let bname = document.createTextNode("Delete");
+  
   remove.classList.add("todo-delete")
   remove.append(bname)
 
@@ -59,10 +64,7 @@ function add_todo(name)
     }
     update()
   })
-
-  let todo = document.createElement("li")
-  let node = document.createTextNode(name)
-  todo.classList.add("todo-text")
+ 
   todo.append(input)
   todo.append(node)
   todo.append(remove)
